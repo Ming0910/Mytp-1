@@ -1,0 +1,14 @@
+
+{
+  "name": "RT值計算器",
+  "short_name": "RT計算",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "百家樂 RT 值計算小工具，支援離線使用。",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}
