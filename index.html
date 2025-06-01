@@ -2,32 +2,43 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#2c3e50"/>
-    <link rel="manifest" href="manifest.json">
-    <title>RT值計算器</title>
-    <style>
-        body { font-family: 'Arial', sans-serif; background-color: #f0f0f0; margin: 0; padding: 20px; }
-        .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-        h1 { text-align: center; color: #333; }
-        label { display: block; margin-top: 10px; }
-        input { width: 100%; padding: 8px; margin-top: 5px; }
-        button { margin-top: 20px; padding: 10px 15px; background-color: #3498db; color: #fff; border: none; cursor: pointer; width: 100%; border-radius: 4px; }
-        button:hover { background-color: #2980b9; }
-        #result { margin-top: 20px; font-weight: bold; color: #2c3e50; text-align: center; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#2c3e50" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" href="icon.png" />
+  <title>RT值計算器</title>
+  <style>
+    body { font-family: 'Arial', sans-serif; background-color: #f0f0f0; margin: 0; padding: 20px; }
+    .container { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+    h1 { text-align: center; color: #333; }
+    label { display: block; margin-top: 10px; }
+    input { width: 100%; padding: 8px; margin-top: 5px; }
+    button { margin-top: 20px; padding: 10px 15px; background-color: #3498db; color: #fff; border: none; cursor: pointer; width: 100%; border-radius: 4px; }
+    button:hover { background-color: #2980b9; }
+    #result, #history { margin-top: 20px; font-weight: bold; color: #2c3e50; text-align: center; }
+    .history-entry { text-align: left; font-weight: normal; margin-top: 5px; border-bottom: 1px solid #ccc; padding-bottom: 5px; }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>RT值計算器</h1>
-        <label for="player">閒家牌面 (例如 8,J):</label>
-        <input id="player" type="text" placeholder="輸入閒家牌面" />
-        <label for="banker">莊家牌面 (例如 8,9):</label>
-        <input id="banker" type="text" placeholder="輸入莊家牌面" />
-        <button onclick="calculate()">計算</button>
-        <div id="result"></div>
-    </div>
-    <script src="script.js"></script>
+  <div class="container">
+    <h1>RT值計算器</h1>
+    <label for="player">閒家牌面 (例如 8,J):</label>
+    <input id="player" type="text" placeholder="輸入閒家牌面" />
+    <label for="banker">莊家牌面 (例如 8,9):</label>
+    <input id="banker" type="text" placeholder="輸入莊家牌面" />
+    <button onclick="calculate()">計算</button>
+    <div id="result"></div>
+    <div id="history"></div>
+    <button onclick="clearHistory()">清除歷史紀錄</button>
+  </div>
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js').then(() => {
+        console.log('Service Worker Registered');
+      });
+    }
+  </script>
 </body>
 </html>
