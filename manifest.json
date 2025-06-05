@@ -1,1 +1,13 @@
-{ "name": "RT值計算器", "short_name": "RT計算", "start_url": ".", "display": "standalone" }
+{
+  "name": "RT值趨勢預測器",
+  "short_name": "RT預測",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "百家樂 RT 值計算與趨勢預測工具",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  }]
+}

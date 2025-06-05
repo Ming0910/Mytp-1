@@ -1,72 +1,33 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#f5f5f5"/>
-    <link rel="manifest" href="manifest.json">
-    <title>RT值計算器</title>
-    <script defer src="script.js"></script>
-    <style>
-        body {
-            font-family: "Arial", sans-serif;
-            background-color: #fdfdfd;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-        }
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-        .warning {
-            background-color: #fff8dc;
-            padding: 10px;
-            border: 1px solid #ccc;
-            color: #444;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .history {
-            margin-top: 20px;
-        }
-        .input-section, .result-section {
-            margin-bottom: 20px;
-        }
-        button {
-            padding: 10px 15px;
-            margin-top: 10px;
-            background-color: #d1bfa7;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #c2ac93;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff"/>
+  <link rel="manifest" href="manifest.json">
+  <title>RT值趨勢預測器</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="warning">⚠️ 請優先挑選已開局 20～50 局的房間，趨勢會更穩定準確！</div>
-        <h1>RT 值趨勢預測工具</h1>
-        <div class="input-section">
-            <label>閒家牌面（例如：8,J）：</label>
-            <input type="text" id="playerInput">
-            <label>莊家牌面（例如：8,9）：</label>
-            <input type="text" id="bankerInput">
-            <button onclick="calculateRT()">計算趨勢</button>
-        </div>
-        <div class="result-section" id="resultBox"></div>
-        <div class="history">
-            <h3>歷史紀錄</h3>
-            <div id="historyArea">（暫存記錄將顯示在此）</div>
-            <button onclick="clearHistory()">清除記錄</button>
-        </div>
+  <div class="login-screen" id="lockScreen">
+    <h2>輸入密碼進入系統</h2>
+    <input type="password" id="passwordInput" placeholder="請輸入密碼">
+    <button onclick="unlock()">確認</button>
+    <p id="errorMsg"></p>
+  </div>
+  <div class="container hidden" id="mainApp">
+    <h1>RT值趨勢預測器</h1>
+    <div class="input-buttons">
+      <button onclick="recordResult('莊')">莊</button>
+      <button onclick="recordResult('閒')">閒</button>
+      <button onclick="recordResult('和')">和</button>
+      <button onclick="recordResult('莊對')">莊對</button>
+      <button onclick="recordResult('閒對')">閒對</button>
     </div>
+    <div id="history"></div>
+    <button onclick="clearHistory()">清除記錄</button>
+    <div id="predictionResult"></div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
