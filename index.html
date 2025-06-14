@@ -1,1 +1,30 @@
-<!DOCTYPE html><html><head><title>RT Tool</title></head><body><h1>RT Tool</h1></body></html>
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RT 工具</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>RT 工具</h1>
+  <div class="container">
+    <div class="input-section">
+      <h2>輸入牌面點數</h2>
+      <label>閒家牌面：</label>
+      <input type="number" id="player1" placeholder="第1張" min="0" max="9" />
+      <input type="number" id="player2" placeholder="第2張" min="0" max="9" /><br />
+      <label>莊家牌面：</label>
+      <input type="number" id="banker1" placeholder="第1張" min="0" max="9" />
+      <input type="number" id="banker2" placeholder="第2張" min="0" max="9" /><br />
+      <button onclick="calculateRT()">計算 RT</button>
+    </div>
+    <div class="result-section">
+      <h2>計算結果</h2>
+      <p id="rtResult">請輸入數值並按下計算</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
